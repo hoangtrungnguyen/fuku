@@ -1,0 +1,56 @@
+# Research Report: Trading Algorithms and AI-Powered News Filtering
+
+## 1. Executive Summary
+Modern financial markets are increasingly driven by information velocity. This report explores the evolution of trading algorithms from pure technical analysis to sentiment-driven strategies powered by Large Language Models (LLMs) and AI Chat APIs (such as Gemini, Claude, and GPT). By leveraging these APIs to filter news, detect sentiment, and extract key events, traders can generate alpha from unstructured data that was previously too complex for traditional algorithms to process efficiently.
+
+## 2. Introduction to Trading Algorithms
+Trading algorithms are computer programs that follow a defined set of instructions (an algorithm) to place a trade. They can execute at speeds and frequencies that are impossible for a human trader.
+- **Types of Algorithms:**
+    - **High-Frequency Trading (HFT):** Focuses on extremely low latency and minute price discrepancies.
+    - **Statistical Arbitrage:** Uses historical correlations between assets to predict mean reversion.
+    - **Sentiment-Based Trading:** A newer frontier that uses natural language processing (NLP) to trade based on public perception and news.
+
+## 3. The Role of News in Financial Markets
+News acts as the primary catalyst for price discovery. Events such as earnings reports, regulatory changes, geopolitical shifts, and product launches create immediate volatility.
+- **The Noise Problem:** Financial markets are flooded with thousands of news articles, tweets, and press releases every minute.
+- **The Challenge:** Traditional keyword-based filtering is brittle. It often fails to capture the *context* or *tone* of the news, leading to false signals.
+
+## 4. AI Chat APIs for News Filtering and Analysis
+AI Chat APIs (LLMs) represent a paradigm shift in how machines "read" news. Unlike simple NLP models, LLMs understand nuance, sarcasm, and complex financial relationships.
+
+### 4.1. Core Capabilities:
+- **Sentiment Analysis:** Classifying news as Bullish (Positive), Bearish (Negative), or Neutral with high accuracy.
+- **Relevance Filtering:** Distinguishing between a generic industry update and a specific material event for a company.
+- **Entity Extraction:** Identifying which companies, CEOs, or assets are the actual subjects of the news.
+- **Event Detection:** Categorizing news into specific buckets like "M&A," "Earnings Beat," "Regulatory Fine," or "Management Change."
+- **Contextual Summarization:** Distilling 10-page reports into 3 actionable bullet points.
+
+## 5. Technical Architecture for News-Based Trading
+A robust system for news-based trading using AI APIs follows this general flow:
+
+1.  **Data Ingestion:** Collect raw data from RSS feeds, News APIs (Bloomberg, Reuters, NewsAPI), and Social Media (Twitter/X).
+2.  **Preprocessing:** Clean HTML, remove ads, and truncate text to fit LLM context windows.
+3.  **LLM Processing Layer:**
+    - **Prompt Engineering:** Crafting specific instructions for the AI (e.g., "Score this news from -1 to 1 based on its impact on NVIDIA's stock price over the next 4 hours").
+    - **API Orchestration:** Managing rate limits and potentially using multiple models (Ensemble) to verify sentiment.
+4.  **Signal Generation:** Combine the AI's sentiment score with traditional indicators (RSI, Moving Averages).
+5.  **Execution:** Route orders to a brokerage API (Alpaca, Interactive Brokers) if the confidence score exceeds a threshold.
+
+## 6. Implementation Strategies & Examples
+### Prompt Engineering Example:
+> "Act as a Senior Quantitative Analyst. Analyze the following news snippet for its impact on [TICKER]. Provide a JSON response with 'sentiment' (float -1 to 1), 'confidence' (0 to 1), and a 10-word 'reasoning'."
+
+### Ensemble Approach:
+Using Gemini for broad sentiment and Claude for deep technical analysis of earnings transcripts can provide a more balanced signal than relying on a single model.
+
+## 7. Challenges and Limitations
+- **Latency:** The time it takes to call an API (often 1-5 seconds) is too slow for HFT. These strategies are best suited for swing trading or "news-fade" strategies over minutes or hours.
+- **Hallucination:** AI can occasionally misinterpret financial data or "hallucinate" facts not present in the text.
+- **Cost:** High-volume API calls can be expensive, requiring efficient filtering *before* sending data to the LLM.
+- **Market Efficiency (Alpha Decay):** As more traders use AI, the time window to profit from a news event shrinks rapidly.
+
+## 8. Conclusion and Future Outlook
+AI Chat APIs have democratized sophisticated sentiment analysis. While they cannot replace high-speed technical execution, they offer a powerful filter for qualitative data. The future of news-based trading lies in **Agentic Workflows**, where AI agents autonomously monitor global news, perform deep-dive research into company filings, and present high-confidence trade ideas to execution algorithms.
+
+---
+*Generated by Gemini CLI Research Agent - February 2026*
